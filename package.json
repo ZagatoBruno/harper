@@ -1,0 +1,22 @@
+{
+  "name": "@bz-devcode/harper",
+  "version": "1.0.0",
+  "description": "harper is a vocal assistant plugin for web applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZagatoBruno/harper.git"
+  },
+  "keywords": [
+    "harper"
+  ],
+  "author": "Bruno Devcode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZagatoBruno/harper/issues"
+  },
+  "homepage": "https://github.com/ZagatoBruno/harper#readme"
+}
