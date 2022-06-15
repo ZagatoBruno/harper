@@ -33,7 +33,7 @@ class HarperWidget extends Harper {
   }
 
   InitWidget() {
-    if (this.IsBrowserSupported) {
+    if (this.IsSupported) {
       this.RenderWidget();
       super.InitAssistant();
     }

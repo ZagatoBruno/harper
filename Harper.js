@@ -7,14 +7,6 @@ class Harper {
     onListening,
     onSpeaking
   ) {
-    this.SpeechRecognition =
-      window.SpeechRecognition || window.webkitSpeechRecognition;
-    this.SpeechGrammarList =
-      window.SpeechGrammarList || window.webkitSpeechGrammarList;
-    this.SpeechRecognitionEvent =
-      window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
-    this.synth = window.speechSynthesis;
-
     this.instructions = [...this.defaultInstructions, ...instructions];
     this.grammars = grammars;
     this.lang = lang || "it-IT";
@@ -29,17 +21,23 @@ class Harper {
     this.onSpeaking = onSpeaking;
   }
 
-  get IsBrowserSupported() {
+  get IsSupported() {
     return (
-      this.SpeechRecognition &&
-      this.SpeechGrammarList &&
-      this.SpeechRecognitionEvent &&
-      this.synth
+      typeof window != "undefined" &&
+      (window.SpeechRecognition || window.webkitSpeechRecognition)
     );
   }
 
   InitAssistant() {
-    if (!this.IsBrowserSupported) return;
+    if (!this.IsSupported) return;
+
+    this.SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    this.SpeechGrammarList =
+      window.SpeechGrammarList || window.webkitSpeechGrammarList;
+    this.SpeechRecognitionEvent =
+      window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
+    this.synth = window.speechSynthesis;
 
     this.InitGrammars();
     this.InitRecognition();
